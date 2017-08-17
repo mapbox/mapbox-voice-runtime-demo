@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Voice Runtime</string>
+
+    <string name="mapbox_access_token"></string>
+    <string name="api_ai_access_token"></string>
+
+    <!--Voice activity-->
+
+    <string name="clear_chat_button">Clear chat button</string>
+    <string name="ask_a_question">Ask a question</string>
+    <string name="placeholder_response_text">Placeholder response text</string>
+    <string name="placeholder_input_text">Placeholder input text</string>
+    <string name="speech_not_supported">I\'m sorry, speech is not supported.</string>
+    <string name="ask_me">Ask me something.</string>
+    <string name="mia_greeting">Hi, I\'m Mapbox\'s assistant! How can I help you?</string>
+    <string name="mic_button">Microphone button</string>
+    <string name="no_layer_in_map">That layer isn\'t in this map style! Try changing a different layer.</string>
+    <string name="prop_factory_method_not_set_up">This method isn\'t set up yet. Try a different PropertyFactory method!</string>
+    <string name="please_repeat">Sorry, please try repeating the command. Also, the method you said might not exist!</string>
+    <string name="please_repeat_number">Sorry, please try repeating the command. The number you said was unclear.</string>
+    <string name="please_repeat_layer">Sorry, please try repeating the command. The layer you said might not exist in this style.</string>
+    <string name="could_not_find_location">Sorry, could not find that location. Please try again or choose a different place.</string>
+
+</resources>
