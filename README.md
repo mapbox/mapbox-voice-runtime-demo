@@ -5,8 +5,7 @@
 - Mapbox can somehow be combined with almost any API that sends back some sort of response.
 
 
-
-
+![](https://github.com/mapbox/mapbox-voice-runtime-demo/blob/master/demo-in-action.gif)
 
 
 
