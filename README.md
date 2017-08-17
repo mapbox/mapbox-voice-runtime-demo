@@ -18,7 +18,7 @@ This demo shows the flexibility and power of runtime styling functionality withi
 3. Find this project's `strings.xml` file in Android Studio and paste the Mapbox default public token in the string resource that's already in the `strings.xml` file:
 ```<string name="mapbox_access_token">PASTE_YOUR_MAPBOX_TOKEN_HERE</string>```
 
-4. Create an API.AI account at [api.ai](api.ai) and then retrieve your _client access token_. [Instructions on how to do that can be found here](https://api.ai/docs/reference/agent/#obtaining_access_tokens).
+4. Create an API.AI account at [api.ai](https://api.ai/) and then retrieve your _client access token_. [Instructions on how to do that can be found here](https://api.ai/docs/reference/agent/#obtaining_access_tokens).
 
 5. Find this project's `strings.xml` file in Android Studio and paste the API.AI client access token in the string resource that's already in the `strings.xml` file:
 ```<string name="api_ai_access_token">PASTE_YOUR_API_AI_CLIENT_ACCESS_TOKEN_HERE</string>```
