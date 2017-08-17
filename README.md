@@ -11,7 +11,7 @@ This demo shows the flexibility and power of runtime styling functionality withi
 
 ## Instructions to open this project on your device
 
-1. Clone this repo and open the project in Android Studio. 
+1. Clone this repo and open the project in [Android Studio **3.0**](https://developer.android.com/studio/preview/index.html). 
 
 2. Retrieve your Mapbox account's _default public token_, which can be found at [https://www.mapbox.com/studio/account/tokens/](https://www.mapbox.com/studio/account/tokens/).
 
