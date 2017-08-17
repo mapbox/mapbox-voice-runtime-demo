@@ -15,12 +15,12 @@ This demo shows the flexibility and power of runtime styling functionality withi
 
 2. Retrieve your Mapbox account's _default public token_, which can be found at [https://www.mapbox.com/studio/account/tokens/](https://www.mapbox.com/studio/account/tokens/).
 
-3. Find [this project's `strings.xml` file](https://github.com/mapbox/mapbox-voice-runtime-demo/blob/master/app/src/main/res/values/strings.xml) in Android Studio and paste the Mapbox default public token in the string resource that's already in the `strings.xml` file:
+3. Find [this project's `strings.xml` file](https://github.com/mapbox/mapbox-voice-runtime-demo/blob/master/app/src/main/res/values/strings.xml) in Android Studio and paste the Mapbox default public token in [the string resource that's already in the `strings.xml` file](https://github.com/mapbox/mapbox-voice-runtime-demo/blob/master/app/src/main/res/values/strings.xml#L4):
 ```<string name="mapbox_access_token">PASTE_YOUR_MAPBOX_TOKEN_HERE</string>```
 
 4. Create an API.AI account at [api.ai](https://api.ai/) and then retrieve your _client access token_. [Instructions on how to do that can be found here](https://api.ai/docs/reference/agent/#obtaining_access_tokens).
 
-5. Find [this project's `strings.xml` file](https://github.com/mapbox/mapbox-voice-runtime-demo/blob/master/app/src/main/res/values/strings.xml) in Android Studio and paste the API.AI client access token in the string resource that's already in the `strings.xml` file:
+5. Find [this project's `strings.xml` file](https://github.com/mapbox/mapbox-voice-runtime-demo/blob/master/app/src/main/res/values/strings.xml) in Android Studio and paste the API.AI client access token in [the string resource that's already in the `strings.xml` file](https://github.com/mapbox/mapbox-voice-runtime-demo/blob/master/app/src/main/res/values/strings.xml#L5):
 ```<string name="api_ai_access_token">PASTE_YOUR_API_AI_CLIENT_ACCESS_TOKEN_HERE</string>```
 
 6. You're all set, so run the app from Android Studio!
