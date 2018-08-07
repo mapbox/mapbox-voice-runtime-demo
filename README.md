@@ -6,7 +6,7 @@ This demo shows the flexibility and power of runtime styling functionality withi
 
 
 
-**[Full video of demo in action](https://drive.google.com/a/mapbox.com/file/d/0B66w40cI4PGHS2FKVTRGZnE2c0E/view?usp=sharing)**
+**A full video of the demo in action can be found at [this Mapbox blog post](https://drive.google.com/a/mapbox.com/file/d/0B66w40cI4PGHS2FKVTRGZnE2c0E/view?usp=sharing)**
 
 
 ## Instructions to open this project on your device
