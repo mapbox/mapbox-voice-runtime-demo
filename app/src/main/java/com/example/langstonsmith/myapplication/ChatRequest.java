@@ -7,16 +7,16 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.mapbox.api.geocoding.v5.MapboxGeocoding;
+import com.mapbox.api.geocoding.v5.models.CarmenFeature;
+import com.mapbox.api.geocoding.v5.models.GeocodingResponse;
+import com.mapbox.geojson.Point;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
 import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.style.layers.Layer;
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory;
-import com.mapbox.services.api.geocoding.v5.MapboxGeocoding;
-import com.mapbox.services.api.geocoding.v5.models.CarmenFeature;
-import com.mapbox.services.api.geocoding.v5.models.GeocodingResponse;
-import com.mapbox.services.commons.models.Position;
 
 import java.util.List;
 
@@ -154,12 +154,12 @@ public class ChatRequest extends AsyncTask<AIRequest, Void, AIResponse> {
         case "Adjust layer visibility":
           if (result.getParameters().get("visibility").getAsString().contentEquals("hide")) {
             String layerToHide = result.getParameters().get("layer").getAsString();
-            Layer layerToShow = map.getLayer(layerToHide);
+            Layer layerToShow = map.getStyle().getLayer(layerToHide);
             layerToShow.setProperties(visibility(NONE));
           }
           if (result.getParameters().get("visibility").getAsString().contentEquals("show")) {
             String layerName = result.getParameters().get("layer").getAsString();
-            Layer layerToShow = map.getLayer(layerName);
+            Layer layerToShow = map.getStyle().getLayer(layerName);
             layerToShow.setProperties(visibility(VISIBLE));
           }
           break;
@@ -182,21 +182,21 @@ public class ChatRequest extends AsyncTask<AIRequest, Void, AIResponse> {
   }
 
   private void searchForRequestedLocationWithMapboxGeocoder(String searchedLocation) {
-    MapboxGeocoding mapboxGeocoding = new MapboxGeocoding.Builder()
-      .setAccessToken(context.getString(R.string.mapbox_access_token))
-      .setLocation(searchedLocation)
+    MapboxGeocoding mapboxGeocoding = MapboxGeocoding.builder()
+      .accessToken(context.getString(R.string.mapbox_access_token))
+      .query(searchedLocation)
       .build();
     mapboxGeocoding.enqueueCall(new Callback<GeocodingResponse>() {
       @Override
       public void onResponse(Call<GeocodingResponse> call, Response<GeocodingResponse> response) {
-        List<CarmenFeature> results = response.body().getFeatures();
+        List<CarmenFeature> results = response.body().features();
         if (results.size() > 0) {
           // Log the first results position.
-          Position firstResultPos = results.get(0).asPosition();
+          Point firstResultPoint = results.get(0).center();
 
           // Create a new LatLng object with the requested position
-          LatLng requestedCoordinate = new LatLng(firstResultPos.getLatitude(),
-            firstResultPos.getLongitude());
+          LatLng requestedCoordinate = new LatLng(firstResultPoint.latitude(),
+            firstResultPoint.longitude());
 
           // Update map with the new LatLng object
           updateMapToNewLocation(requestedCoordinate);
@@ -278,7 +278,7 @@ public class ChatRequest extends AsyncTask<AIRequest, Void, AIResponse> {
 
   private void adjustMap(String propFactorMethodToUse, float numberForAdjustment, String layerName, @Nullable String colorToChangeLayerTo) {
     // Get specified layer from map
-    Layer layerToChange = map.getLayerAs(layerName);
+    Layer layerToChange = map.getStyle().getLayerAs(layerName);
     if (layerToChange == null) {
       Toast.makeText(context, R.string.no_layer_in_map, Toast.LENGTH_LONG).show();
       return;

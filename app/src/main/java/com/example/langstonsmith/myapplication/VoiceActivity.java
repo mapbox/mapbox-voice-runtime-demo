@@ -4,8 +4,8 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,6 +13,7 @@ import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
+import com.mapbox.mapboxsdk.maps.Style;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -43,17 +44,22 @@ public class VoiceActivity extends AppCompatActivity implements OnMapReadyCallba
 
     ButterKnife.bind(this);
 
-    mapView = (MapView) findViewById(R.id.voice_mapView);
+    mapView = findViewById(R.id.voice_mapView);
     mapView.onCreate(savedInstanceState);
     mapView.getMapAsync(this);
-    setupApiAiConfiguration();
   }
 
   @Override
-  public void onMapReady(MapboxMap mapboxMap) {
-    this.mapboxMap = mapboxMap;
+  public void onMapReady(@NonNull final MapboxMap mapboxMap) {
+    mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
+      @Override
+      public void onStyleLoaded(@NonNull Style style) {
+        // Map is set up and the style has loaded. Now you can add data or make other map adjustments
+        VoiceActivity.this.mapboxMap = mapboxMap;
+        setupApiAiConfiguration();
+      }
+    });
   }
-
 
   @OnClick(R.id.microphone_fab)
   public void microphoneButtonClick(View view) {
