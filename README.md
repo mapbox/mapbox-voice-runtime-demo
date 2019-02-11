@@ -6,7 +6,7 @@ This demo shows the flexibility and power of runtime styling functionality withi
 
 
 
-**A full video of the demo in action can be found at [this Mapbox blog post](https://drive.google.com/a/mapbox.com/file/d/0B66w40cI4PGHS2FKVTRGZnE2c0E/view?usp=sharing)**
+**More information about this project can be found in [this Mapbox blog post](https://blog.mapbox.com/style-a-map-on-android-with-your-voice-9cb611bbc901)**
 
 
 ## Instructions to open this project on your device
